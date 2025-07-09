@@ -1,62 +1,93 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #d4e4f7, #bac7cc);
+  font-family: 'Courier New', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .calculator {
-    width: 300px;
-    background-color: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background-color: #cce7ff;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 6px solid #2c7a91;
+  box-shadow: 
+  0 8px 20px rgba(0, 0, 0, 0.25), 
+  inset 0 0 0 2px #ffffff;
+  width: 320px;
+  position: relative;
 }
 
-.display {
-    background-color: #222;
-    padding: 20px;
-}
-
-#display {
-    width: 100%;
-    height: 50px;
-    border: none;
-    background-color: #222;
-    color: white;
-    font-size: 24px;
-    text-align: right;
-    outline: none;
+.display input {
+  width: 90%;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: right;
+  border: 2px solid #a3b8cc;
+  border-radius: 0.5rem;
+  background: #f9f9f9;
+  color: #000;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
 }
 
 .btn {
-    padding: 20px;
-    border: none;
-    background-color: #444;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background: linear-gradient(to bottom, #3388cc, #226699);
+  color: white;
+  border: 2px solid #1e5f99;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25),
+              inset -2px -2px 4px rgba(255, 255, 255, 0.25),
+              inset 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-.btn:hover {
-    background-color: #555;
+.btn:active {
+  transform: scale(0.96);
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-#equal {
-    grid-column: span 4;
-    background-color: #1e90ff;
-    font-size: 24px;
+.equal {
+  grid-column: span 2;
+  background: linear-gradient(to bottom, #ffcc00, #d4a300);
+  color: #000;
+  font-weight: bold;
 }
 
-#equal:hover {
-    background-color: #0077cc;
+/* Toggle Button Styles */
+#toggle-mode {
+  padding: 0.5rem 1rem;
+  background-color: #56B2BB;
+  background: linear-gradient(to bottom, #3388cc, #226699);
+  color: white;
+  font-weight: bold;
+  border: 2px solid #1e5f99;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Scientific Buttons Grid */
+.sci-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
 }

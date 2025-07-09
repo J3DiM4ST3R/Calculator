@@ -30,6 +30,18 @@
             <button class="btn" id="equal" onclick="calculate()">=</button>
             <button class="btn" onclick="appendNumber('0')">0</button>
             <button class="btn" onclick="appendNumber('.')">.</button>
+            <button class="btn" onclick="appendNumber('%')">%</button>
+            <button class="btn" id="toggle-mode">Sci</button>
+        </div>
+        <div class="sci-buttons hidden">
+            <button class="btn" onclick="appendFunction('sin(')">sin</button>
+            <button class="btn" onclick="appendFunction('cos(')">cos</button>
+            <button class="btn" onclick="appendFunction('tan(')">tan</button>
+            <button class="btn" onclick="appendFunction('log(')">log</button>
+            <button class="btn" onclick="appendFunction('sqrt(')">√</button>
+            <button class="btn" onclick="appendFunction('Math.PI')">π</button>
+            <button class="btn" onclick="appendFunction('Math.E')">e</button>
+            <button class="btn" onclick="appendFunction('^')">xʸ</button>
         </div>
     </div>
     <script src="script.js"></script>

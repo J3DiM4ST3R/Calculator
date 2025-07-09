@@ -6,6 +6,11 @@ function appendNumber(number) {
     display.value += number;
 }
 
+// Function to append a function like sin( or log(
+function appendFunction(func) {
+    display.value += func;
+}
+
 // Function to clear the display
 function clearDisplay() {
     display.value = '';
@@ -19,8 +24,30 @@ function deleteLast() {
 // Function to calculate the result
 function calculate() {
     try {
-        display.value = eval(display.value); // Use eval with caution
+        let expression = display.value
+            .replace(/sin\(/g, "Math.sin(")
+            .replace(/cos\(/g, "Math.cos(")
+            .replace(/tan\(/g, "Math.tan(")
+            .replace(/log\(/g, "Math.log10(")
+            .replace(/sqrt\(/g, "Math.sqrt(")
+            .replace(/\^/g, "**") //exponentiation
+            .replace(/(\d+)%/g, "($1/100)");
+
+        display.value = eval(expression); // Use eval with caution
     } catch (error) {
         display.value = 'Error';
     }
+}
+
+// Toggle scientific mode
+const toggleButton = document.getElementById("toggle-mode");
+const sciSection = document.querySelector(".sci-buttons");
+
+if (toggleButton && sciSection) {
+  toggleButton.addEventListener("click", () => {
+    sciSection.classList.toggle("hidden");
+    toggleButton.textContent = sciSection.classList.contains("hidden")
+      ? "Scientific"
+      : "Standard";
+  });
 }
