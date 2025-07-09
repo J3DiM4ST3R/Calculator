@@ -8,6 +8,7 @@ function appendNumber(number) {
 
 // Function to append a function like sin( or log(
 function appendFunction(func) {
+    const display = document.getElementById("display");
     display.value += func;
 }
 
@@ -30,7 +31,9 @@ function calculate() {
             .replace(/tan\(/g, "Math.tan(")
             .replace(/log\(/g, "Math.log10(")
             .replace(/sqrt\(/g, "Math.sqrt(")
-            .replace(/\^/g, "**") //exponentiation
+            .replace(/\^/g, "**")
+            .replace(/π/g, "Math.PI")
+            .replace(/\be\b/g, "Math.E")
             .replace(/(\d+)%/g, "($1/100)");
 
         display.value = eval(expression); // Use eval with caution
